@@ -15,6 +15,14 @@
 - 添加字库前评估 Flash 与内部 RAM 影响；ESP32-C3 无 PSRAM。
 - 不提交许可不允许分发的字库。
 
+| 文件 | 覆盖范围 | 来源、许可与集成方式 |
+| --- | --- | --- |
+| [`fonts/sports_font_16.c`](fonts/sports_font_16.c)、[`fonts/sports_font_20.c`](fonts/sports_font_20.c)、[`fonts/sports_font_28.c`](fonts/sports_font_28.c) | 可打印 ASCII（`0x20`–`0x7E`）加上 [`fonts/sports_font_chars.txt`](fonts/sports_font_chars.txt) 中列出的 115 个非 ASCII 字符 | 运动计数器与排行榜的固定中文子集：16px 用于提示、单位与辅助信息，20px 用于正文和操作按钮，28px 用于页面标题。由 Noto Sans SC Regular（[`notofonts/noto-cjk`](https://github.com/notofonts/noto-cjk)）在 [SIL Open Font License 1.1](fonts/NotoSansSC-OFL.txt) 下生成，生成脚本为 [`tools/gen_sports_fonts.py`](../tools/gen_sports_fonts.py)，转换器为 `lv_font_conv@1.5.3`（`--bpp 4 --no-compress --format lvgl`）。字形数据通过 [`main/CMakeLists.txt`](../main/CMakeLists.txt) 编译进 Flash；[`tests/test_sports_font_coverage.py`](../tests/test_sports_font_coverage.py) 会在任何界面字符缺字时失败。源 TTF/OTF 不随仓库提交；修改界面文字后请重新下载并运行生成脚本。 |
+
+40px 大号数字使用 [`sdkconfig.defaults`](../sdkconfig.defaults) 启用的内置
+Montserrat 40，中文字库特意不再生成 40px 字号。提交的字体源码是可复现的
+构建输入，不是通用的中文文本字库。
+
 ## 图片（images）
 
 可复用的源图与生成的显示资产放在 `images/`。

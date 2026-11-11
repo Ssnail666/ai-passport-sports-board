@@ -17,6 +17,15 @@ Store reusable font files and generated font sources in `fonts/`.
 - Check Flash and internal-RAM impact before adding a font; the ESP32-C3 has no PSRAM.
 - Do not commit fonts whose license does not permit redistribution.
 
+| File | Coverage | Source, license, and integration |
+| --- | --- | --- |
+| [`fonts/sports_font_16.c`](fonts/sports_font_16.c), [`fonts/sports_font_20.c`](fonts/sports_font_20.c), [`fonts/sports_font_28.c`](fonts/sports_font_28.c) | Printable ASCII (`0x20`–`0x7E`) plus the 115 non-ASCII characters listed in [`fonts/sports_font_chars.txt`](fonts/sports_font_chars.txt) | Fixed Chinese subsets for the sports counter and leaderboard: hints, units, and metadata at 16 px; body and action text at 20 px; screen titles at 28 px. Generated from Noto Sans SC Regular ([`notofonts/noto-cjk`](https://github.com/notofonts/noto-cjk)) under the [SIL Open Font License 1.1](fonts/NotoSansSC-OFL.txt) with [`tools/gen_sports_fonts.py`](../tools/gen_sports_fonts.py) and `lv_font_conv@1.5.3` (`--bpp 4 --no-compress --format lvgl`). Glyph data is compiled into Flash by [`main/CMakeLists.txt`](../main/CMakeLists.txt); [`tests/test_sports_font_coverage.py`](../tests/test_sports_font_coverage.py) fails if any displayed character is missing. The source TTF/OTF is not committed; re-download it and rerun the generator after changing displayed text. |
+
+The 40 px large numbers use the built-in Montserrat 40 font enabled in
+[`sdkconfig.defaults`](../sdkconfig.defaults); the Chinese subsets intentionally
+do not add a 40 px size. The committed font sources are the reproducible build
+input, not a general-purpose Chinese text font.
+
 ## Images
 
 Store reusable source images and generated display assets in `images/`.

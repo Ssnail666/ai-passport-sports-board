@@ -1,0 +1,17 @@
+# 「运动榜」中文字体子集字符清单
+#
+# 由 tools/gen_sports_fonts.py 自动收集 main/ 下 C 字符串字面量里会被绘制到
+# 屏幕上的字符(注释与 ESP_LOG 日志文本不计入),再加上可打印 ASCII
+# (0x20-0x7E)后生成。大号数字使用 sdkconfig 启用的 Montserrat 40,不在此
+# 子集内。
+#
+# 源字体: Noto Sans SC Regular (SIL Open Font License 1.1)
+# 源文件: 自行下载的 NotoSansSC-Regular.ttf/.otf(不随仓库提交)
+# 转换器: lv_font_conv@1.5.3 --bpp 4 --no-compress --format lvgl
+#
+# 修改任何界面文字后请重新运行生成脚本,并执行 ./tools/validate.sh --static。
+
+ascii: 0x20-0x7E
+non_ascii_count: 115
+non_ascii: ·—一三上下个中人仰位体余你佳保俯停入内再切创初到前剩动化卧厘去取号名向启回坐备失始存定屈并应开引录成战手择按挑换排撑数整新无时暂最有未本机束来榜次止没消用由目离秒立第等算米纪结绩绳自行计设请调败起跑距跳运返还远选造重键长间页项首
+codepoints: U+00B7 U+2014 U+4E00 U+4E09 U+4E0A U+4E0B U+4E2A U+4E2D U+4EBA U+4EF0 U+4F4D U+4F53 U+4F59 U+4F60 U+4F73 U+4FDD U+4FEF U+505C U+5165 U+5185 U+518D U+5207 U+521B U+521D U+5230 U+524D U+5269 U+52A8 U+5316 U+5367 U+5398 U+53BB U+53D6 U+53F7 U+540D U+5411 U+542F U+56DE U+5750 U+5907 U+5931 U+59CB U+5B58 U+5B9A U+5C48 U+5E76 U+5E94 U+5F00 U+5F15 U+5F55 U+6210 U+6218 U+624B U+62E9 U+6309 U+6311 U+6362 U+6392 U+6491 U+6570 U+6574 U+65B0 U+65E0 U+65F6 U+6682 U+6700 U+6709 U+672A U+672C U+673A U+675F U+6765 U+699C U+6B21 U+6B62 U+6CA1 U+6D88 U+7528 U+7531 U+76EE U+79BB U+79D2 U+7ACB U+7B2C U+7B49 U+7B97 U+7C73 U+7EAA U+7ED3 U+7EE9 U+7EF3 U+81EA U+884C U+8BA1 U+8BBE U+8BF7 U+8C03 U+8D25 U+8D77 U+8DD1 U+8DDD U+8DF3 U+8FD0 U+8FD4 U+8FD8 U+8FDC U+9009 U+9020 U+91CD U+952E U+957F U+95F4 U+9875 U+9879 U+9996
